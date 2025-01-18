@@ -1,38 +1,35 @@
-﻿Date input = new Date();
+﻿Circle krug = new Circle();
+System.Console.Write("Enter circle's radius: ");
+string radius = krug.SetRadius(double.Parse(Console.ReadLine()));
 
-System.Console.Write("Day: ");
-input.GetDay(int.Parse(Console.ReadLine()));
+System.Console.Write("Area of the circle: ");
+double area = krug.GetArea();
+System.Console.WriteLine(area);
 
-System.Console.Write("Month: ");
-input.GetMonth(int.Parse(Console.ReadLine()));
+System.Console.Write("Diameter of the circle: ");
+double diameter = krug.GetDiameter();
+System.Console.WriteLine(diameter);
 
-System.Console.Write("Year: ");
-input.GetYear(int.Parse(Console.ReadLine()));
+System.Console.Write("Circumference of the circle: ");
+double circumference = krug.GetCircumference();
+System.Console.WriteLine(circumference);
 
-string date = input.ToString();
-System.Console.WriteLine(date);
+class Circle{
+    private double radius;
+    private double PI = 3.14159;
 
-class Date{
-    private int day;
-    private int month;
-    private int year;
-
-    public void SetDate(int day, int month, int year){
-        this.day=day;
-        this.month=month;
-        this.year=year;
+    public string SetRadius (double radius){
+        this.radius = radius;
+        return "None";
     }
-    public void GetDay(int day){
-        this.day=day;
+    public double GetArea(){
+        return PI*radius*radius;
     }
-    public void GetMonth(int month){
-        this.month=month;
+    public double GetDiameter(){
+        return radius*2;
     }
-    public void GetYear(int year){
-        this.year=year;
-    }
-    public string ToString(){
-        return $"{day}/{month}/{year}";
+    public double GetCircumference(){
+        return 2*PI*radius;
     }
 
 }
